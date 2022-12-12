@@ -4,25 +4,16 @@ export interface Task {
   done: boolean;
 }
 
-export const tasks = [
-  {
-    title: 'Task 1',
-    description: 'Description 1',
-    done: false,
-  },
-  {
-    title: 'Task 2',
-    description: 'Description 2',
-    done: false,
-  },
-  {
-    title: 'Task 3',
-    description: 'Description 3',
-    done: true,
-  },
-  {
-    title: 'Task 4',
-    description: 'Description 4',
-    done: true,
-  },
-];
+export function saveTask(task: Task) {
+  const tasks = loadTasks();
+  tasks.push(task);
+  localStorage.setItem('tasks', JSON.stringify(tasks));
+}
+
+export function loadTasks(): Task[] {
+  const json = localStorage.getItem('tasks');
+  if (json) {
+    return JSON.parse(json);
+  }
+  return [];
+}

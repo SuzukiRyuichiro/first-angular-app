@@ -1,5 +1,5 @@
-import { Component } from '@angular/core';
-import { Task, tasks } from '../task/tasks';
+import { Component, Input } from '@angular/core';
+import { Task } from '../task/tasks';
 
 @Component({
   selector: 'app-task-list',
@@ -9,7 +9,7 @@ import { Task, tasks } from '../task/tasks';
 export class TaskListComponent {
   showForm = false;
 
-  tasks: Task[] = tasks;
+  @Input() tasks!: Task[];
 
   toggleShowForm() {
     this.showForm = !this.showForm;

@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { Task, tasks } from '../task/tasks';
+import { Task, saveTask } from '../task/tasks';
 
 @Component({
   selector: 'app-task-form',
@@ -7,18 +7,19 @@ import { Task, tasks } from '../task/tasks';
   styleUrls: ['./task-form.component.scss'],
 })
 export class TaskFormComponent {
+  title: string = '';
+  description: string = '';
+
   addTask(event: any) {
     event.preventDefault();
+
     const newTask: Task = {
       title: this.title,
       description: this.description,
       done: false,
     };
 
-    tasks.unshift(newTask);
+    saveTask(newTask);
     event.target.reset();
   }
-
-  title: string = '';
-  description: string = '';
 }

@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Task, loadTasks } from './task/tasks';
 
 @Component({
   selector: 'app-root',
@@ -7,4 +8,10 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'first-angular-app';
+
+  tasks: Task[] = [];
+
+  ngOnInit() {
+    this.tasks = loadTasks();
+  }
 }
