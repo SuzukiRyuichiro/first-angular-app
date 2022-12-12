@@ -1,7 +1,5 @@
 <h2>Tasks</h2>
-
+<app-task-form *ngIf="true"></app-task-form>
 <div *ngFor="let task of tasks">
-  <h3>
-    {{ task.name }}
-  </h3>
+  <app-task></app-task>
 </div>
