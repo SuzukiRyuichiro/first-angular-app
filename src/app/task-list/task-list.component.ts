@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Task, tasks } from '../task/tasks';
 
 @Component({
   selector: 'app-task-list',
@@ -6,26 +7,11 @@ import { Component } from '@angular/core';
   styleUrls: ['./task-list.component.scss'],
 })
 export class TaskListComponent {
-  tasks = [
-    {
-      name: 'Task 1',
-      description: 'Vitae commodo sagittis duis',
-      done: false,
-    },
-    {
-      name: 'Task 2',
-      description: 'Vitae commodo sagittis duis',
-      done: false,
-    },
-    {
-      name: 'Task 3',
-      description: 'Vitae commodo sagittis duis',
-      done: false,
-    },
-    {
-      name: 'Task 4',
-      description: 'Vitae commodo sagittis duis',
-      done: false,
-    },
-  ];
+  showForm = false;
+
+  tasks: Task[] = tasks;
+
+  toggleShowForm() {
+    this.showForm = !this.showForm;
+  }
 }

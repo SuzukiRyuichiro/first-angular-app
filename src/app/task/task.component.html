@@ -1,10 +1,11 @@
   <mat-card>
     <mat-card-header>
-      <mat-card-title>Actions Buttons</mat-card-title>
-      <mat-card-subtitle>End</mat-card-subtitle>
+      <mat-card-title [class.line-through]="task.done" [class.text-neutral-400]="task.done">{{ task.title }}
+      </mat-card-title>
+      <mat-card-subtitle [class.line-through]="task.done" [class.text-neutral-400]="task.done">{{ task.description }}
+      </mat-card-subtitle>
     </mat-card-header>
     <mat-card-actions align="end">
-      <button mat-button>LIKE</button>
-      <button mat-button>SHARE</button>
+      <button mat-button [disabled]="task.done">Done</button>
     </mat-card-actions>
   </mat-card>

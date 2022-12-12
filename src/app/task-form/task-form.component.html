@@ -1,10 +1,11 @@
-<form>
-  <mat-form-field class="example-full-width">
+<form class="flex justify-between gap-2 items-center" (submit)="addTask($event)">
+  <mat-form-field class="w-full">
     <mat-label>Title</mat-label>
-    <input matInput placeholder="Laundry">
+    <input matInput placeholder="Laundry" [(ngModel)]="title" name="title">
   </mat-form-field>
-  <mat-form-field class="example-full-width">
+  <mat-form-field class="w-full">
     <mat-label>Details</mat-label>
-    <input matInput placeholder="Wash and dry">
+    <input matInput placeholder="Wash and dry" [(ngModel)]="description" name="description">
   </mat-form-field>
+  <button mat-raised-button color="primary">Save</button>
 </form>
